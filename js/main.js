@@ -1,101 +1,111 @@
-//Entrega 1
-function saludar(nombre){
-    alert("hola "+nombre)
-}
- alert("Bienvenido al Restaurante");
- let nomb=prompt("escribe tu nombre")
- saludar(nomb)
-alert("Al ser epoca de fiestas realizamos descuetos del 21% sobre el total de tu compra!!!");
-//   Entrega 2
-  const comidas=[
-    {id:1,nombre:"pizza",precio:2500,img:"pizza.jpg"},
-    {id:2,nombre:"empanada",precio:280,img:"empanada.jpg"},
-    {id:3,nombre:"panino",precio:1900,img:"panino.jpg"},
-    {id:4,nombre:"carlitos",precio:1790,img:"carlitos.jpg"},
-    {id:5,nombre:"ravioles",precio:950,img:"ravioles.jpg"},
-  ]
+ 
+let id = document.querySelector("#id"),
+nombre = document.querySelector("#nombre"),
+precio = document.querySelector("#precio"),
+imagen = document.querySelector("#imagen"),
+busqueda = document.querySelector("#busqueda"),
+tabla = document.querySelector("#tabla"),
+formulario = document.querySelector("#formulario");
+const radios = document.querySelectorAll('input[type="radio"]')
 
-  function comida(nombre,precio,img){
-    this.id=comidas.length+1;
-    this.nombre=nombre;
-    this.precio=parseFloat(precio);
-    if(!img){
-        this.img="noimagen.jpg"
-    }else{
-        this.img=img;
-    }
+const inventario = [
+  { id: 1, nombre: "pizza", precio: 2500, img:  "pizza.jpg" },
+  { id: 2, nombre: "empanada", precio: 280, img: "empanada.jpg" },
+  { id: 3, nombre: "panino", precio: 1900, img: "panino.jpg" },
+  { id: 4, nombre: "carlitos", precio: 1790, img: "carlitos.jpg" },
+  { id: 5, nombre: "ravioles", precio: 950, img: "ravioles.jpg" },
+]
+
+let comidas;
+if (localStorage.getItem("inventario")) {
+  comidas = JSON.parse(localStorage.getItem("inventario"))
+} else {
+  comidas = inventario
+}
+
+function comida(id, nombre, precio, img) {
+  this.id = id;
+  this.nombre = nombre;
+  this.precio = parseFloat(precio);
+  if (img="") {
+    this.img = "noimagen.jpg"
+  } else {
+    this.img = img;
   }
-
-  comidas.push(new comida("milanesa",1400,"milanesa.jpg"))
-  comidas.push(new comida("hamburguesa",1500))
-  console.log(comidas);
-
-
-  function  filtrarPorPrecio(array,filtro){
-    return array.filter((comida)=>{
-        return comida.precio<=parseFloat(filtro);
-    })
 }
- 
-function buscarPorNombre(array,busqueda){
-    return encontrado=array.find((comida)=>{
-    return comida.nombre.includes(busqueda)
-})
- }
 
-
-let precioComida=prompt("ingresa precio de la comida que desea filtrar");
-const filtradoComida=filtrarPorPrecio(comidas,precioComida)
-console.log(filtradoComida );
-
-let comidaBuscada=prompt("ingresa nombre de la comida que desea buscar");
-const buscarComida=buscarPorNombre(comidas,comidaBuscada)
-console.log(buscarComida );
-
-//Entrega 1
-const pizza = 2500;
-const empanada = 280;
-const panino = 1900;
-const carlitos = 1790;
-const ravioles = 950;
-
-let total=0; 
-
-let opcion=prompt("Seleccione que comida va a comprar(elija el numero): \n1-pizza \n2-empanada \n3-panino \n4-carlitos \n5-ravioles \nESC para finalizar")
-
-while(opcion!="ESC"){
-    switch (opcion) {
-        case "1":
-            total=total+pizza;
-            break;
-        case "2":
-            total=total+empanada;
-            break;
-        case "3":
-            total=total+panino;    
-            break;
-        case "4":
-            total=total+carlitos;          
-            break;
-        case "5":
-            total=total+ravioles;           
-            break;   
-        default:
-            alert("opcion no valida")
-            break;
+function cargar(array, comida) {
+  array.push(comida)
+}
+function guardar(array) {
+  localStorage.setItem("array", JSON.stringify(array))
+}
+function filtrar(array, filtro, par) {
+  return array.filter((el) => {
+    if (par == "precio") {
+      return el.precio <= parseFloat(filtro)
+    } else {
+      return el[`${par}`].includes(filtro)
     }
-    opcion=prompt("Seleccione que comida va a comprar: \n1-pizza \n2-empanada \n3-panino \n4-carlitos \n5-ravioles \nESC para finalizar");
+  })
 }
- 
-const Descuento=(precio)=>(precio-(precio*0.21));
- if (total!=0){
-    alert("el total de la compra es "+total);
-    alert("el total a pagar por usted con descuento del 21% es: "+Descuento(total))
- }else{
-    alert("no ha comprado ninguna comida, hasta luego!");
- }
- 
-  alert("Que tengas felices fiestas!")
 
- 
+function estruct(array) {
+  tabla.innerHTML = "";
+  let html = "";
+  for (const i of array) {
+    html = `<tr>
+        <td>${i.id}</td>
+        <td>${i.nombre}</td>
+        <td>${i.precio}</td>
+        <td><img src="${i.img}"/></td>
+        <td><button class="btn red" id="${i.isbn}">Borrar</button></td>
+        </tr> `
 
+  }
+  tbody.innerHTML += html
+}
+
+const botones = querySelectorAll()
+botones.forEach((boton) => {
+  boton.addEventListener("click", ("td .btn") => {
+    comidas = comidas.filter((el) => el.isbn != boton.id);
+    console.log(comidas);
+    cargar(comidas)
+    estruct(comidas)
+  })
+})
+
+  estruct(comidas)
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const nuevaComida = new comida(
+    id.value,
+    nombre.value,
+    precio.value,
+    imagen.value
+  )
+  console.log(nuevaComida);
+  cargar(comidas, nuevaComida)
+  guardar(comidas)
+  estruct(comidas)
+  formulario.reset()
+});
+
+buscar.addEventListener("input", () => {
+  let otroFiltro = filtrar(comidas, buscar.value, "nombre")
+  estruct(otroFiltro)
+}
+)
+
+for (const r of radios) {
+  r.addEventListener("change", () => {
+    if (radios, checked) {
+      buscar.addEventListener("input", () => {
+        let otroFiltro = filtrar(comidas, buscar.value, r.value)
+        estruct(otroFiltro)
+      })
+    }
+  })
+
+}

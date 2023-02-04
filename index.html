@@ -1,14 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<body>
- <script src="./js/main.js">
 
-</script>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <h1>Menu de Comidas</h1>
+        </div>
+        <div class="row">
+            <div class="col m3">
+                <div class="row">
+                    <h3>Registra una comida</h3>
+                </div>
+                <div class="row">
+                    <form class="col s12" id="formulario">
+                        <div class="row">
+                            <div class="input-field col m12 s12">
+                                <input type="text" id="id" class="validate"> <label for="id">ID</label>
+
+                            </div>
+                        </div>
+                        <div class="input-field col m12 s12">
+                            <input type="text" id="nombre" class="validate"> <label for="nombre">Nombre</label>
+
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col m12 s12">
+                        <input type="text" id="precio" class="validate"><label for="precio">Precio</label>
+                    </div>
+                </div>
+ 
+                <div class="row">
+                    <div class="input-field col m12 s12">
+                        <input type="text" id="imagen" class="validate"> <label for="imagen">Imagen</label>
+
+                    </div>
+                </div>
+                <input type="submit" id="enviado" class="enviar" value="envio">
+            </div>
+            </form>
+        </div>
+        <div class="col m1"></div>
+        <div class="col m8 s4 m7" id="contenedor">
+            <i class="material-icons">search</i>
+            <div class="input-field inline">
+                <input type="search" class="validate" id="busqueda">
+                <label for="busca">Buscar</label>
+            </div>
+            <div class="col m12 s12">
+                <span>
+                    <label>
+                        <input type="radio" class="with-gap" value="id "> <span>ID</span>
+                    </label>
+                    <label>
+                        <input type="radio" class="with-gap" value="nombre "> <span>Nombre</span>
+                    </label>
+                    <label>
+                        <input type="radio" class="with-gap" value="precio "> <span>precio</span>
+                    </label>
+                </span>
+            </div>
+        </div>
+    </div>
+    <table class="responsive-table striped" id="tabla">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="table"></tbody>
+    </table>
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+    <script src="./js/main.js">
+
+    </script>
 </body>
+
 </html>
