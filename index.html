@@ -1,51 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>Take Away</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Take Away</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-minimal@4/minimal.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="./public/css/styles.css">
+
 </head>
 
 <body>
-    <header>
-        <h1>Menu de Comidas</h1>
-        <button id="imagenCarrito">  0</button>
-    </header>
-    <div class="m-contenedor">
-        <div class="m-carrito">
-        <h3>Carrito</h3>
-        <button id="cerrarCarrito"></button>
-     
-    <div id="carritoContenedor"></div>
-     
-        <p  id="subtotal">Subtotal</p>
-        <p c id="iva">Iva</p>
-        <p  id="total">Total</p>
-        <button id="vaciarCarrito">Vaciar</button></div>
+
+  <header>
+    <h1>Menu de Comidas </h1>
+
+<!--boton del carrito-->
+    <button id="cesta-carrito">
+      <i class="fas fa-shopping-cart">
+        <span id="contador-carrito"></span>
+      </i>
+    </button>
+  </header>
+  <div>
+    <input type="search" id="search" class="validate">
+    <label for="search" class="search">Buscar</label>
+</div>
+  <main id="producto-contenedor">
+
+  </main>
+    
+  <div class="modal-contenedor">
+
+    <!-- Dentro del carrito-->
+    <div class="modal-carrito">
+      <h3>Carrito</h3>
+
+      <!--boton para cerrar carrito-->
+      <button id="btn-cerrar-carrito">
+        <i class="fas fa-times-circle"></i>
+      </button>
+      
+      <div id="carrito-contenedor">
+
+      </div>
+
+      <p class="precioProducto">Subtotal: $ <span id="precioSubtotal"></span></p>
+      <p class="precioProducto">IVA: $ <span id="precioIVA"></span></p>
+      <p class="precioProducto"> <b>Total: $</b>   <span id="precioTotal"></span></p>
+
+   to" id="btn-eliminar-todo-del-carrito">Finalizar Compra</button>
     </div>
-    <div>
-        <input type="search" id="search" class="validate">
-        <label for="search">Buscar</label>
     </div>
+  </div>
+  
 
-
-    <table id="tabla">
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Imagen</th>
-
-        <tbody id="contenedor"></tbody>
-    </table>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
-    <script src="./js/main.js">
-
-    </script>
+  <script src="./js/main.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.js"
+    integrity="sha512-ZHzbWDQKpcZxIT9l5KhcnwQTidZFzwK/c7gpUUsFvGjEsxPusdUCyFxjjpc7e/Wj7vLhfMujNx7COwOmzbn+2w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
 </body>
 
 </html>
