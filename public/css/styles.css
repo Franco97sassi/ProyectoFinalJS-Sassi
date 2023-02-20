@@ -41,7 +41,7 @@ h1 {
  
 #cesta-carrito:hover {
   cursor: pointer;
-  color: rgb(70, 2, 2);
+  color: rgb(0, 0, 0);
   background-color: rgb(77, 56, 196);
 }
 
@@ -64,7 +64,6 @@ p {
 
 .card {
   max-width: 30%;
-  padding: 10px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   background-color: rgb(97, 165, 233);
@@ -87,7 +86,7 @@ select {
   transition: all .5s;
   opacity: 0;
   visibility: hidden;
-  background-color: rgba(224, 224, 224, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* clase del carrito activo */
@@ -129,6 +128,7 @@ select {
 }
 .search{
   font-size: 25px;
+   color: black;
    
 }
 .modal-carrito #btn-cerrar-carrito:hover {

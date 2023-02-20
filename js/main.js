@@ -8,7 +8,7 @@ const productos =
     { id: 5, nombre: "ravioles", precio: 1000, cantidad: 1, img: "./img/ravioles.jpg" },
    
 ]
-
+ 
 //Accedo al Dom
 const abrirCarrito = document.querySelector('#cesta-carrito');
 const modalContenedor = document.querySelector('.modal-contenedor');
@@ -298,9 +298,12 @@ search.addEventListener("input", () => {
     mostrarProductos(filtro)
   })
 
- //Uso de fetch 
+  //Uso de fetch 
   fetch('./data/data.json')
 .then((response) => response.json())
 .then((data) => {
   mostrarProductos(data);
-});
+ });
+
+ 
+ 
