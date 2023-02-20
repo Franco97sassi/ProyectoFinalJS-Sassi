@@ -195,7 +195,7 @@ const agregarAlCarrito = (productoId) => {
     contenedor.appendChild(div);
     actualizarTotalesCarrito(carrito);
     Toastify({
-        text: `Agregaste ${producto.nombre} al carrito`,
+        text: `Agregaste un/una ${producto.nombre} al carrito`,
         duration: 1000
     }).showToast();
 };
@@ -257,7 +257,7 @@ const mostrarProductos = (productos) => {
     div.innerHTML += `<div class="card-image">
                         <img src=${producto.img}>
                         <span class="card-title">${producto.nombre}</span>
-                        <button  id=boton${producto.id}>Agregar </button>
+                        <button class="boton-agregar" id=boton${producto.id}>Agregar </button>
                       </div>
                       <div class="card-content">
                           

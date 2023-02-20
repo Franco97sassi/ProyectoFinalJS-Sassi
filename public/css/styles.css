@@ -6,6 +6,7 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
+  background-color:rgb(82, 249, 255)
 }
 
 img {
@@ -19,25 +20,25 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: rgb(0, 0, 0) 0px 10px 25px;
+  background-color: rgb(127, 204, 255);
 }
-
+ 
 h1 {
   color: rgb(140, 0, 255);
    font-weight: 100px;
    font-weight: bold;
-   margin: 0;
+   padding-left: 600px;
  }
 
 #cesta-carrito {
-  border: none;
   color: rgb(180, 65, 225);
-  font-size: 30px;
-  background-color: white;
-  border-radius: 50%;
+  font-size: 35px;
+  background-color: rgb(28, 0, 71);
+  border-radius: 75%;
   padding: 10px 20px;
-  transition: all .3s;
+  transition: all .10s;
 }
-
+ 
 #cesta-carrito:hover {
   cursor: pointer;
   color: rgb(70, 2, 2);
@@ -66,7 +67,7 @@ p {
   padding: 10px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  background-color: rgb(148, 149, 150);
+  background-color: rgb(97, 165, 233);
 }
 
 select {
@@ -174,4 +175,11 @@ select {
 
 .boton-eliminar:focus {
   outline: none;
+}
+.boton-agregar{
+  width: 75px;
+  background-color: azure;
+  font-weight: bold;
+  border-radius: 50px;
+
 }
